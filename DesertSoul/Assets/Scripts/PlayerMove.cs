@@ -18,6 +18,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
 
     [SerializeField] private PlayerInputActions playerControls;
+    [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private InputAction move;
     [SerializeField] private InputAction look;
 
