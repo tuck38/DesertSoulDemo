@@ -3,18 +3,20 @@ using System;
 using NUnit.Framework;
 using UnityEngine;
 
-public class WeaponBase : MonoBehaviour
+[CreateAssetMenu]
+public class WeaponBase : ScriptableObject
 {
 
     [SerializeField] private SpriteRenderer WeaponSprite;
-    [SerializeField] private List<AttackBase> Attacks;
-    [SerializeField] private Stack<AttackBase> combo;
+    [SerializeField] protected List<AttackBase> Attacks;
+    [SerializeField] protected List<AttackType> combo;
     [SerializeField] private float ComboTimer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        Attacks = new List<AttackBase>();
+        combo = new List<AttackType>();
     }
 
     // Update is called once per frame
@@ -23,18 +25,54 @@ public class WeaponBase : MonoBehaviour
         
     }
 
-    public Stack<AttackBase> AddAttack(AttackBase attack)
+    public void AddAttack(AttackType attack, Animator anim)
     {
-        combo.Push(attack);
-        return combo;
+        bool match = true;
+
+        for(int i = 0; i < Attacks.Count; i++)
+        {
+            if (Attacks[i].getAttackType() == attack)
+            {
+                if (combo.Count == Attacks[i].getRequire().Count)
+                {
+                    for (int j = 0; j < Attacks[i].getRequire().Count; j++)
+                    {
+                        if (combo[j] != Attacks[i].getRequire()[j])
+                        {
+                            match = false;
+                            break;
+                        }
+                    }
+                    if (match)
+                    {
+                        anim.SetInteger("Attack", Attacks[i].getID());
+                        anim.SetBool("isAttacking", true);
+                        Attacks[i].doAttack();
+                        combo.Add(attack);
+                        float count = 0;
+
+                        while (count < Attacks[i].getTime())
+                        {
+                            count += Time.deltaTime;
+                        }
+                        //anim.SetBool("isAttacking", false);
+                        return;
+                    }
+                }
+            }
+        }
+        //if no moves are found that equal the current combo, clear the combo and run the function again to preform a basic move
+        EndCombo();
+        //AddAttack(attack, anim);
+        return;
     }
 
-    public void ClearStack()
+    public void EndCombo()
     {
         combo.Clear();
     }
 
-    public Stack<AttackBase> GetStack()
+    public List<AttackType> GetCombo()
     {
         return combo;
     }

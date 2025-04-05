@@ -1,27 +1,38 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackBase : MonoBehaviour
+[CreateAssetMenu]
+public class AttackBase : ScriptableObject
 {
-    [SerializeField] private Stack<AttackBase> requirments;
+    [SerializeField] protected List<AttackType> requirments;
     [SerializeField] private int damage;
     [SerializeField] private float AtkTime;
     [SerializeField] private AttackType type;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private int attackID;
 
     public AttackType getAttackType()
     {
         return type;
+    }
+
+    public List<AttackType> getRequire()
+    {
+        return requirments;
+    }
+
+    public void doAttack()
+    {
+
+    }
+
+    public int getID()
+    { 
+        return attackID; 
+    }
+
+    public float getTime()
+    {
+        return AtkTime;
     }
 }

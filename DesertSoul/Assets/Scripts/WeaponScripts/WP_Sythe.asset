@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640422bc61716a74ba303357c007fb87, type: 3}
+  m_Name: WP_Sythe
+  m_EditorClassIdentifier: 
+  WeaponSprite: {fileID: 0}
+  Attacks:
+  - {fileID: 11400000, guid: 41bbf6f51f680684dbd8f03b1a70cf49, type: 2}
+  - {fileID: 11400000, guid: 9b08601c5a1c205469ed9b7787554542, type: 2}
+  combo: 00000000
+  ComboTimer: 0

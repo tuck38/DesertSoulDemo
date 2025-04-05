@@ -14,6 +14,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float gravLimit = 10f;
 
     [SerializeField] private Rigidbody2D rb;
+    private Animator anim;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
@@ -21,6 +22,8 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private InputAction move;
     [SerializeField] private InputAction look;
+
+    [SerializeField] public WeaponBase heldWeapon;
 
 
     private void Awake()
@@ -31,12 +34,13 @@ public class PlayerMove : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        Attack();
         Jump();
         horizontal = move.ReadValue<Vector2>();
         vertical = look.ReadValue<float>();
@@ -62,6 +66,14 @@ public class PlayerMove : MonoBehaviour
 
     private void Move()
     {
+        if(horizontal.x != 0)
+        {
+            anim.SetBool("isWalking", true);
+        }
+        if (horizontal.x == 0)
+        {
+            anim.SetBool("isWalking", false);
+        }
         rb.linearVelocity = new Vector2(horizontal.x * speed, rb.linearVelocity.y);
     }
 
@@ -88,6 +100,20 @@ public class PlayerMove : MonoBehaviour
         if(IsGrounded())
         {
             rb.gravityScale = baseGravity;
+        }
+    }
+
+    private void Attack()
+    {
+        if (Input.GetButtonDown("PrimaryAttack"))
+        {
+            heldWeapon.AddAttack(AttackType.primary, anim);
+
+        }
+
+        if (Input.GetButtonDown("SecondaryAttack"))
+        {
+            heldWeapon.AddAttack(AttackType.secondary, anim);
         }
     }
 
