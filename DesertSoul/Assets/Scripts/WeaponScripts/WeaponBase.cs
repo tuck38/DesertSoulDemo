@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System;
 using NUnit.Framework;
 using UnityEngine;
+using Unity.VisualScripting;
 
 [CreateAssetMenu]
 public class WeaponBase : ScriptableObject
@@ -11,6 +12,7 @@ public class WeaponBase : ScriptableObject
     [SerializeField] protected List<AttackBase> Attacks;
     [SerializeField] protected List<AttackType> combo;
     [SerializeField] private float ComboTimer;
+    private bool isAttacking;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -46,16 +48,16 @@ public class WeaponBase : ScriptableObject
                     if (match)
                     {
                         anim.SetInteger("Attack", Attacks[i].getID());
-                        anim.SetBool("isAttacking", true);
+                        isAttacking = true;
+                        anim.SetBool("isAttacking", isAttacking);
+                        anim.Update(Time.deltaTime);
                         Attacks[i].doAttack();
                         combo.Add(attack);
-                        float count = 0;
 
-                        while (count < Attacks[i].getTime())
-                        {
-                            count += Time.deltaTime;
-                        }
-                        //anim.SetBool("isAttacking", false);
+                        isAttacking = AttackTimer(Attacks[i].getTime());
+
+                        anim.SetBool("isAttacking", isAttacking);
+
                         return;
                     }
                 }
@@ -70,6 +72,26 @@ public class WeaponBase : ScriptableObject
     public void EndCombo()
     {
         combo.Clear();
+    }
+
+    private bool AttackTimer(float attackTime)
+    {
+        float time = 0f;
+
+        while (time < attackTime)
+        {
+            time += Time.deltaTime;
+
+            Debug.Log("hmmm");
+            
+        }
+
+        return false;
+    }
+
+    public void Timer()
+    {
+
     }
 
     public List<AttackType> GetCombo()
