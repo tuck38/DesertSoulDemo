@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &768154965916438980
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1388628185809083228}
+  m_Layer: 0
+  m_Name: ProjectileSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1388628185809083228
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768154965916438980}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.79, y: 0, z: -8.344126}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6021192115620328936}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &897795833961490490
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,6 +76,7 @@ GameObject:
   - component: {fileID: 7767278961558348056}
   - component: {fileID: 6122991240835986413}
   - component: {fileID: 5298358386686727894}
+  - component: {fileID: 1076998973189379271}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -67,6 +99,7 @@ Transform:
   m_Children:
   - {fileID: 8727176915732031999}
   - {fileID: 843887266979572711}
+  - {fileID: 1388628185809083228}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6005027152251848148
@@ -165,7 +198,7 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
-  heldWeapon: {fileID: 11400000, guid: e0fc15ed8df898240b450e40c494f83b, type: 2}
+  heldWeapon: {fileID: 1076998973189379271}
 --- !u!50 &7767278961558348056
 Rigidbody2D:
   serializedVersion: 5
@@ -261,6 +294,26 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1076998973189379271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243749701929299577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640422bc61716a74ba303357c007fb87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WeaponSprite: {fileID: 0}
+  Attacks:
+  - {fileID: 11400000, guid: 41bbf6f51f680684dbd8f03b1a70cf49, type: 2}
+  - {fileID: 11400000, guid: 9b08601c5a1c205469ed9b7787554542, type: 2}
+  combo: 
+  ComboTimer: 0
+  animator: {fileID: 5298358386686727894}
+  projectileSpawn: {fileID: 768154965916438980}
 --- !u!1 &3639786736444385490
 GameObject:
   m_ObjectHideFlags: 0

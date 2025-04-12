@@ -107,13 +107,13 @@ public class PlayerMove : MonoBehaviour
     {
         if (Input.GetButtonDown("PrimaryAttack"))
         {
-            heldWeapon.AddAttack(AttackType.primary, anim);
+            heldWeapon.AddAttack(AttackType.primary);
 
         }
 
         if (Input.GetButtonDown("SecondaryAttack"))
         {
-            heldWeapon.AddAttack(AttackType.secondary, anim);
+            heldWeapon.AddAttack(AttackType.secondary);
         }
     }
 

@@ -566,6 +566,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e91b3f720b1640445a8fb3ab0b7d7974, type: 3}
+--- !u!1 &503105909 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1243749701929299577, guid: 2d3e55ff863d5b94ca90900bd8a18ca3, type: 3}
+  m_PrefabInstance: {fileID: 8228277573774596098}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1232,6 +1237,30 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 6005027152251848148, guid: 2d3e55ff863d5b94ca90900bd8a18ca3, type: 3}
   m_PrefabInstance: {fileID: 8228277573774596098}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1418844845 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5298358386686727894, guid: 2d3e55ff863d5b94ca90900bd8a18ca3, type: 3}
+  m_PrefabInstance: {fileID: 8228277573774596098}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1418844850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503105909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640422bc61716a74ba303357c007fb87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WeaponSprite: {fileID: 0}
+  Attacks:
+  - {fileID: 11400000, guid: 41bbf6f51f680684dbd8f03b1a70cf49, type: 2}
+  - {fileID: 11400000, guid: 9b08601c5a1c205469ed9b7787554542, type: 2}
+  combo: 
+  ComboTimer: 0
+  animator: {fileID: 1418844845}
 --- !u!1001 &1438559844
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1623,20 +1652,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6122991240835986413, guid: 2d3e55ff863d5b94ca90900bd8a18ca3, type: 3}
       propertyPath: m_SpriteTilingProperty.border.y
-      value: 0.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6122991240835986413, guid: 2d3e55ff863d5b94ca90900bd8a18ca3, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.88
+      value: 1.28
       objectReference: {fileID: 0}
     - target: {fileID: 6122991240835986413, guid: 2d3e55ff863d5b94ca90900bd8a18ca3, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.92
+      value: 1.28
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1243749701929299577, guid: 2d3e55ff863d5b94ca90900bd8a18ca3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1418844850}
   m_SourcePrefab: {fileID: 100100000, guid: 2d3e55ff863d5b94ca90900bd8a18ca3, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requirments: 00000000
   damage: 2
-  AtkTime: 4
+  AtkTime: 0.3
   type: 0
   attackID: 1

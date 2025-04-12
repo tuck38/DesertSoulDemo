@@ -4,30 +4,35 @@ using NUnit.Framework;
 using UnityEngine;
 using Unity.VisualScripting;
 
-[CreateAssetMenu]
-public class WeaponBase : ScriptableObject
+public class WeaponBase : MonoBehaviour
 {
 
     [SerializeField] private SpriteRenderer WeaponSprite;
     [SerializeField] protected List<AttackBase> Attacks;
     [SerializeField] protected List<AttackType> combo;
     [SerializeField] private float ComboTimer;
+    [SerializeField] private Animator animator;
+    [SerializeField] private GameObject projectileSpawn;
+    private float currentAttackTimer;
+    private float attackTime;
     private bool isAttacking;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Attacks = new List<AttackBase>();
-        combo = new List<AttackType>();
+        isAttacking = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(isAttacking == true)
+        {
+            AttackTimer();
+        }
     }
 
-    public void AddAttack(AttackType attack, Animator anim)
+    public void AddAttack(AttackType attack)
     {
         bool match = true;
 
@@ -47,16 +52,14 @@ public class WeaponBase : ScriptableObject
                     }
                     if (match)
                     {
-                        anim.SetInteger("Attack", Attacks[i].getID());
+                        animator.SetInteger("Attack", Attacks[i].getID());
                         isAttacking = true;
-                        anim.SetBool("isAttacking", isAttacking);
-                        anim.Update(Time.deltaTime);
-                        Attacks[i].doAttack();
+                        attackTime = 0f;
+                        currentAttackTimer = Attacks[i].getTime();
+                        animator.SetBool("isAttacking", isAttacking);
+                        Debug.Log(projectileSpawn.transform);
+                        Attacks[i].doAttack(projectileSpawn.transform);
                         combo.Add(attack);
-
-                        isAttacking = AttackTimer(Attacks[i].getTime());
-
-                        anim.SetBool("isAttacking", isAttacking);
 
                         return;
                     }
@@ -74,23 +77,18 @@ public class WeaponBase : ScriptableObject
         combo.Clear();
     }
 
-    private bool AttackTimer(float attackTime)
+    private void AttackTimer()
     {
-        float time = 0f;
-
-        while (time < attackTime)
+        if (attackTime < currentAttackTimer)
         {
-            time += Time.deltaTime;
-
-            Debug.Log("hmmm");
-            
+            attackTime += Time.deltaTime;
         }
-
-        return false;
-    }
-
-    public void Timer()
-    {
+        else
+        {
+            isAttacking = false;
+            EndCombo();
+            animator.SetBool("isAttacking", isAttacking);
+        }
 
     }
 

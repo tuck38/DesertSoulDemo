@@ -10,6 +10,7 @@ public class AttackBase : ScriptableObject
     [SerializeField] private float AtkTime;
     [SerializeField] private AttackType type;
     [SerializeField] private int attackID;
+    [SerializeField] private GameObject projectile;
 
     public AttackType getAttackType()
     {
@@ -21,9 +22,16 @@ public class AttackBase : ScriptableObject
         return requirments;
     }
 
-    public void doAttack()
+    public void doAttack(Transform transform)
     {
-
+        if (type == AttackType.primary)
+        {
+            //dohitboxstuff
+        }
+        else if (type == AttackType.secondary)
+        {
+            //Spawn projectile
+        }
     }
 
     public int getID()
