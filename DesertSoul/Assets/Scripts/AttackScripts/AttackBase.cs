@@ -34,6 +34,11 @@ public class AttackBase : ScriptableObject
         }
     }
 
+    public int getDamage()
+    {
+        return damage;
+    }
+
     public int getID()
     { 
         return attackID; 

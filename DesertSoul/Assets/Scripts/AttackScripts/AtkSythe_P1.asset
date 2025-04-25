@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AtkSythe_P1
   m_EditorClassIdentifier: 
   requirments: 
-  damage: 1
+  damage: 2
   AtkTime: 0.5
   type: 0
   attackID: 0

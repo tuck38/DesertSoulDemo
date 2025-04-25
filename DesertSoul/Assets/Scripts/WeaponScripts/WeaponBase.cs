@@ -13,6 +13,9 @@ public class WeaponBase : MonoBehaviour
     [SerializeField] private float ComboTimer;
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject projectileSpawn;
+
+    [SerializeField] private WP_HitBox HitBox;
+
     private float currentAttackTimer;
     private float attackTime;
     private bool isAttacking;
@@ -53,11 +56,11 @@ public class WeaponBase : MonoBehaviour
                     if (match)
                     {
                         animator.SetInteger("Attack", Attacks[i].getID());
+                        HitBox.currentAttack = Attacks[i];
                         isAttacking = true;
                         attackTime = 0f;
                         currentAttackTimer = Attacks[i].getTime();
                         animator.SetBool("isAttacking", isAttacking);
-                        Debug.Log(projectileSpawn.transform);
                         Attacks[i].doAttack(projectileSpawn.transform);
                         combo.Add(attack);
 

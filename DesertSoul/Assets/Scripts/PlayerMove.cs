@@ -62,19 +62,33 @@ public class PlayerMove : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+        spriteRotation();
     }
 
     private void Move()
     {
-        if(horizontal.x != 0)
+        if(horizontal.x < 0)
         {
             anim.SetBool("isWalking", true);
         }
-        if (horizontal.x == 0)
+        else if(horizontal.x > 0)
+        {
+            anim.SetBool("isWalking", true);
+        }
+        else
         {
             anim.SetBool("isWalking", false);
         }
         rb.linearVelocity = new Vector2(horizontal.x * speed, rb.linearVelocity.y);
+    }
+
+    private void spriteRotation()
+    {
+        if (horizontal.x < 0 && isFacingRight || horizontal.x > 0 && !isFacingRight)
+        {
+            isFacingRight = !isFacingRight;
+            transform.Rotate(new Vector3(0, 180, 0));
+        }
     }
 
     private void Jump()
