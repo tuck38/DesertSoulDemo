@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 7767278961558348056}
   - component: {fileID: 6122991240835986413}
   - component: {fileID: 5298358386686727894}
-  - component: {fileID: 1076998973189379271}
+  - component: {fileID: 5643392107775045682}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -146,7 +146,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8598911646308356358, guid: fad81f2790866e048823af0459a00c0f, type: 3}
+  m_Sprite: {fileID: -7986019571225177006, guid: dba403e8b84b7de44a5e674fa85f9da2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -198,7 +198,7 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
-  heldWeapon: {fileID: 1076998973189379271}
+  heldWeapon: {fileID: 5643392107775045682}
 --- !u!50 &7767278961558348056
 Rigidbody2D:
   serializedVersion: 5
@@ -260,17 +260,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.15177238, y: 0.00813055}
+  m_Offset: {x: 0.027102053, y: -0.04336357}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
+    oldSize: {x: 0.59, y: 0.55}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.5880468, y: 0.93495464}
+  m_Size: {x: 0.5609447, y: 0.49047852}
   m_EdgeRadius: 0
 --- !u!95 &5298358386686727894
 Animator:
@@ -294,7 +294,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1076998973189379271
+--- !u!114 &5643392107775045682
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

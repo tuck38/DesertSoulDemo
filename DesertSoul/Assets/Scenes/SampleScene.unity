@@ -1261,6 +1261,18 @@ MonoBehaviour:
   combo: 
   ComboTimer: 0
   animator: {fileID: 1418844845}
+  projectileSpawn: {fileID: 0}
+--- !u!114 &1418844851 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5643392107775045682, guid: 2d3e55ff863d5b94ca90900bd8a18ca3, type: 3}
+  m_PrefabInstance: {fileID: 8228277573774596098}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503105909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640422bc61716a74ba303357c007fb87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1438559844
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1590,10 +1602,18 @@ PrefabInstance:
       propertyPath: sprite
       value: 
       objectReference: {fileID: 1418844844}
+    - target: {fileID: 3151976702978925430, guid: 2d3e55ff863d5b94ca90900bd8a18ca3, type: 3}
+      propertyPath: heldWeapon
+      value: 
+      objectReference: {fileID: 1418844851}
+    - target: {fileID: 5643392107775045682, guid: 2d3e55ff863d5b94ca90900bd8a18ca3, type: 3}
+      propertyPath: Attacks.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6005027152251848148, guid: 2d3e55ff863d5b94ca90900bd8a18ca3, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 8598911646308356358, guid: fad81f2790866e048823af0459a00c0f, type: 3}
+      objectReference: {fileID: -7986019571225177006, guid: dba403e8b84b7de44a5e674fa85f9da2, type: 3}
     - target: {fileID: 6021192115620328936, guid: 2d3e55ff863d5b94ca90900bd8a18ca3, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -1644,11 +1664,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6122991240835986413, guid: 2d3e55ff863d5b94ca90900bd8a18ca3, type: 3}
       propertyPath: m_Size.x
-      value: 0.64291763
+      value: 0.6626469
+      objectReference: {fileID: 0}
+    - target: {fileID: 6122991240835986413, guid: 2d3e55ff863d5b94ca90900bd8a18ca3, type: 3}
+      propertyPath: m_Size.y
+      value: 0.58230954
       objectReference: {fileID: 0}
     - target: {fileID: 6122991240835986413, guid: 2d3e55ff863d5b94ca90900bd8a18ca3, type: 3}
       propertyPath: m_Offset.x
-      value: -0.1525716
+      value: -0.017754555
+      objectReference: {fileID: 0}
+    - target: {fileID: 6122991240835986413, guid: 2d3e55ff863d5b94ca90900bd8a18ca3, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.015943915
       objectReference: {fileID: 0}
     - target: {fileID: 6122991240835986413, guid: 2d3e55ff863d5b94ca90900bd8a18ca3, type: 3}
       propertyPath: m_SpriteTilingProperty.border.y
@@ -1656,11 +1684,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6122991240835986413, guid: 2d3e55ff863d5b94ca90900bd8a18ca3, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.28
+      value: 0.59
       objectReference: {fileID: 0}
     - target: {fileID: 6122991240835986413, guid: 2d3e55ff863d5b94ca90900bd8a18ca3, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.28
+      value: 0.55
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
